@@ -13,13 +13,10 @@ from scipy.io.wavfile import write
 from flask import Flask, send_file
 import os.path
 
-SAVED_MODEL_PATH = "model.h5"
-#SAMPLES_TO_CONSIDER = 22050
+
 
 class _STS_model:
-    """Singleton class for keyword spotting inference with trained models.
-    :param model: Trained model
-    """
+    
     model0 = None
     processor0 = None  
     model1 = None
@@ -107,13 +104,10 @@ def STS_model():
 
 if __name__ == "__main__":
 
-    # create 2 instances of the keyword spotting service
+    # create 2 instances of the model
     kss = STS_model()
     kss1 = STS_model()
 
-    # check that different instances of the keyword spotting service point back to the same object (singleton)
     assert kss is kss1
     
-    # make a prediction
-    recommended = 12345 # kss.predict("test/sentences.text")
-    print(recommended)
+  
